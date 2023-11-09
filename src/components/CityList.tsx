@@ -2,13 +2,11 @@ import CityItem from "./CityItem";
 import styles from "./CityList.module.css";
 import Message from "./Message";
 import Spinner from "./Spinner";
+import { useCities } from "../contexts/CitiesContext";
 
-type props = {
-  cities: City[];
-  isLoading: boolean;
-};
+function CityList() {
+  const { cities, isLoading } = useCities();
 
-function CityList({ cities, isLoading }: props) {
   if (isLoading) return <Spinner />;
 
   if (!cities.length)
